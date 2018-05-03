@@ -12,8 +12,14 @@ function resolve(dir) {
 module.exports = {
   context: rootPath,
   module: {
-    rules: [ 
+    rules: [
       {
+        test: /\.(ts|tsx)$/,
+        include: resolve('static/src'),
+        exclude: resolve('node_modules'),
+        // loader: ['babel-loader', 'awesome-typescript-loader']
+        loader: ['babel-loader', 'ts-loader']
+      }, {
         test: /\.(js|jsx)$/,
         exclude: resolve('node_modules'),
         loader: ['babel-loader']
@@ -60,7 +66,7 @@ module.exports = {
     modules: [resolve('static/src'), resolve('node_modules')]
   },
   entry: {
-    'main': ['./static/src/index.js'],
+    'main': ['./static/src/index.tsx'],
     vendor: [
       'react',
       'react-dom',
