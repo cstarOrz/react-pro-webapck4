@@ -9,3 +9,5 @@ npm-debug.log.*
 package-lock.json
 sftp-config.json
 build
+yarn-error.*
+tslint.json
